@@ -1,0 +1,25 @@
+<b>Hall of Fame</b>
+<% if @submissions.empty? %>
+  <p><i> Nobody has solved this problem yet.</i></p>
+<% else %>
+  <% user_has_solved = (@problem.get_highest_scoring_submission(@current_user)&.score == 100) %>
+  <table class="main_table">
+    <tr>
+      <th style="width:1%"></th>
+      <th>Date</th>
+      <th>Username</th>
+      <th>Language</th>
+      <th>Size (bytes)</th>
+    </tr>
+
+    <% @submissions.each_with_index do |sub, i| %>
+      <tr>
+        <td> <%= i+1 %> </td>
+        <td> <%= user_has_solved ? (link_to sub.created_at.strftime("%b %d %Y, %H:%M"), sub) : sub.created_at.strftime("%b %d %Y, %H:%M") %> </td>
+        <td> <%= link_to sub.user.username, sub.user %> </td>
+        <td> <%= user_has_solved ? sub.language.name : "?" %> </td>
+        <td> <%= user_has_solved ? sub.source.bytesize : "?" %> </td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>

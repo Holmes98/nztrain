@@ -79,6 +79,19 @@ class Problem < ActiveRecord::Base
     return Submission.where("created_at between ? and ? and user_id IN (?) and problem_id = ?", from, to, user, self).order(created_at: :asc)
   end
 
+  def hall_of_fame_submissions
+    solved = []
+    submissions = []
+
+    Submission.where("problem_id = ? and points = maximum_points and points > 0", self).order(created_at: :asc).each do |sub|
+      if !solved.include?(sub.user.id)
+        solved << sub.user.id
+        submissions << sub
+      end
+    end
+    return submissions
+  end
+
   def input_type=(type)
     if type == 'stdin'
       self.input = nil

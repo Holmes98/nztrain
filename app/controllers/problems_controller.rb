@@ -121,6 +121,16 @@ class ProblemsController < ApplicationController
     end
   end
 
+  def hall_of_fame
+    @problem = Problem.find(params[:id])
+    authorize @problem, :view_submissions?
+    @submissions = @problem.hall_of_fame_submissions()
+
+    respond_to do |format|
+      format.html { render :layout => "problem" }
+    end
+  end
+
   def test_cases
     @problem = Problem.find(params[:id])
     authorize @problem, :inspect?

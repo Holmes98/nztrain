@@ -113,6 +113,8 @@ NZTrain::Application.routes.draw do
       get 'submit'
       get 'submissions'
 
+      get 'hall_of_fame'
+
       get 'export'
       post 'import'
 

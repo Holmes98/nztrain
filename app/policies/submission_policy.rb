@@ -28,7 +28,7 @@ class SubmissionPolicy < AuthenticatedPolicy
   end
 
   def show?
-    inspect? or scope.where(:id => record.id).exists?
+    inspect? or scope.where(:id => record.id).exists? or (!user.competing? && record.problem.get_highest_scoring_submission(user.id)&.score == 100 && record.problem.hall_of_fame_submissions.include?(record))
   end
 
   def rejudge?
