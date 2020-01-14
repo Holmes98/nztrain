@@ -18,6 +18,9 @@
   <p><%= f.label :password_confirmation %><br />
   <%= f.password_field :password_confirmation %></p>
 
+  <p><%= f.label :public_source_code %><br/>
+  <%= f.check_box :public_source_code %> (If checked, others can view your 100-scoring submissions)</p>
+
   <p><%= f.label :country_code, "Country" %><br />
   <%= f.country_select(:country_code, selected: @user.country_code || request.location.try(:country_code), priority_countries: ["NZ", "AU"]) %></p>
 

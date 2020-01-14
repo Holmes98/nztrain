@@ -25,6 +25,9 @@
   <%= f.file_field :avatar %>
   <%= f.hidden_field :avatar_cache %></p>
 
+  <p><%= f.label :public_source_code %><br/>
+  <%= f.check_box(:public_source_code) %> (If checked, others can view your 100-scoring submissions)</p>
+
   <p><%= f.label :country_code, "Country" %><br />
   <%= f.country_select(:country_code, priority_countries: ["NZ", "AU"] ) %></p>
 
