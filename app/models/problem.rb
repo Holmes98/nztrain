@@ -84,7 +84,7 @@ class Problem < ActiveRecord::Base
     submissions = []
 
     Submission.where("problem_id = ? and points = maximum_points and points > 0", self).order(created_at: :asc).each do |sub|
-      if !solved.include?(sub.user.id) && sub.user.public_source_code
+      if !solved.include?(sub.user.id) && sub.user.public_source_code && sub.classification == Submission::CLASSIFICATION[:ranked]
         solved << sub.user.id
         submissions << sub
       end
