@@ -61,7 +61,8 @@ gem 'sinatra'
 
 # Monitoring
 gem 'newrelic_rpm'
-gem 'coveralls', require: false
+gem 'simplecov', require: false
+gem 'simplecov-lcov', '< 0.8.0', require: false # pinned because 0.8.0 requires simplecov >= 0.18, which requires ruby >= 2.4
 
 group :development do
   gem 'better_errors'
