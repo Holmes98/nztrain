@@ -50,7 +50,7 @@ RUN yes | update=false bash script/install.bash
 
 COPY Gemfile* ./
 # Bundle installation is invoked in advance to avoid prompt 
-RUN bundle install --deployment
+RUN bundle install
 
 COPY . .
 RUN service postgresql start; \
