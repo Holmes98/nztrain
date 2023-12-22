@@ -33,7 +33,7 @@ SHELL ["/bin/bash", "-l", "-c"]
 # Install Ruby 2.3.8
 RUN rvm requirements
 RUN rvm install 2.3.8
-RUN gem install bundler --no-ri --no-rdoc
+RUN gem install bundler -v "~>1.16"
 
 WORKDIR /nztrain
 COPY script ./script
