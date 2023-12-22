@@ -37,7 +37,6 @@ RUN gem install bundler -v "~>1.16"
 
 WORKDIR /nztrain
 COPY script ./script
-RUN bash script/install/maxmind.bash
 RUN yes | bash script/install/imagemagick.bash
 
 COPY config ./config
