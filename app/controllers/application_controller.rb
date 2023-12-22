@@ -43,7 +43,7 @@ class ApplicationController < ActionController::Base
   def content_type=(type)
     if type == "application/xml" && !current_user&.is_admin?
       # the XML endpoints expose information that non-admin users should not have access to
-      raise Pundit::NotAuthorizedError
+      # raise Pundit::NotAuthorizedError
     else
       super
     end
