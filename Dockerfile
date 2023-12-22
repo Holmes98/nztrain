@@ -44,6 +44,7 @@ RUN RAILS_ENV=development DATABASE_USERNAME=root DATABASE=nztrain \
     TEST_DATABASE=nztraintest APP_NAME=nztrain USER=root \
     APP_USER=root UNICORN_PORT= REDIS_HOST=localhost REDIS_PORT=6379 \
     REDIS_PASS=@/etc/redis/redis.conf REDIS_INSTALL=true \
+    ISOLATE_ROOT=/ ISOLATE_CGROUPS=false ISOLATE_BRANCH=master \
     SERVER_NAME=_ bash script/install/config.bash --defaults
 # Avoid updating as database servers are not live yet
 RUN yes | update=false bash script/install.bash
