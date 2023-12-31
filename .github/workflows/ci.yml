@@ -55,3 +55,7 @@ jobs:
       - uses: coverallsapp/github-action@v1
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: codecov/codecov-action@v3
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
