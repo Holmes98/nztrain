@@ -86,8 +86,6 @@ group :development, :test do
 
   gem 'byebug'
 
-  gem 'ruby_parser' # for declarative_authorization
-
   gem 'standard'
 end
 
