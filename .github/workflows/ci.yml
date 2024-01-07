@@ -45,7 +45,7 @@ jobs:
           REDIS_PASS:
           SCHEDULE_BACKUPS: 0
           ISOLATE_ROOT: /
-          ISOLATE_CGROUPS: false
+          ISOLATE_CGROUPS: true
           ISOLATE_BRANCH: master
 
       - name: Back up db/schema.rb # it will be overwritten when install.bash runs migrate.bash; back up the original so we can check if it's up to date
